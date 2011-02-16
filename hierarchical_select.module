@@ -513,7 +513,7 @@ function hierarchical_select_process($element, $edit, &$form_state, $form) {
   // - at least one special item has the 'exclusive' property
   // - the dropbox is enabled
   // then do the necessary processing to make exclusive lineages possible.
-  if (isset($special_item) && count($special_items['exclusive']) && $config['dropbox']['status']) {
+  if (isset($special_items) && count($special_items['exclusive']) && $config['dropbox']['status']) {
     // When the form is first loaded, $db_selection will contain the selection
     // that we should check, but in updates, $hs_selection will.
     $selection = (!empty($hs_selection)) ? $hs_selection : $db_selection;
