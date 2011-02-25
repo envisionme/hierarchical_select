@@ -1,5 +1,4 @@
 <?php
-// $Id$
 
 /**
  * Form definition; configuration form for Hierarchical Select as the widget
