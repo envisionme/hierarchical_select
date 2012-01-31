@@ -754,7 +754,7 @@ function _hs_taxonomy_token_termpath_for_vid($selection, $vid) {
  */
 function hierarchical_select_taxonomy_form_vocabulary_validate($form, &$form_state) {
   // The "multiple select" setting doesn't exist for the forum vocabulary!
-  if (isset($form['settings']['multiple'])) {
+  if ($form_state['values']['hierarchical_select_status'] && isset($form['settings']['multiple'])) {
     // Enable Taxonomy's "multiple select" setting when:
     // - Hierarchical Select's "multiple select" setting is enabled, or:
     // - Hierarchical Select's "save term lineage" setting is enabled
