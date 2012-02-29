@@ -265,7 +265,7 @@ function hs_taxonomy_form_alter(&$form, $form_state, $form_id) {
           $typed_string = taxonomy_implode_tags($terms, $vocabulary->vid) . (array_key_exists('tags', $terms) ? $terms['tags'][$vocabulary->vid] : NULL);
         }
         if ($vocabulary->help) {
-          $help = $vocabulary->help;
+          $help = filter_xss($vocabulary->help);
         }
         else {
           $help = t('A comma-separated list of terms describing this content. Example: funny, bungee jumping, "Company, Inc.".');
@@ -336,7 +336,7 @@ function hs_taxonomy_form_alter(&$form, $form_state, $form_id) {
           }
         }
 
-        $form['taxonomy'][$vocabulary->vid] = $form_function($vocabulary->vid, array_keys($default_terms), $vocabulary->help);
+        $form['taxonomy'][$vocabulary->vid] = $form_function($vocabulary->vid, array_keys($default_terms), filter_xss($vocabulary->help));
         $form['taxonomy'][$vocabulary->vid]['#weight'] = $vocabulary->weight;
         $form['taxonomy'][$vocabulary->vid]['#required'] = $required;
       }
