@@ -453,6 +453,7 @@ function hs_content_taxonomy_hierarchical_select_item_get_label($item, $params) 
 function hs_content_taxonomy_hierarchical_select_create_item($label, $parent, $params) {
   // TRICKY: no depth check is necessary because HS's internal validation
   // prevents an invalid parent.
+  $parent = $params['parent'];
   return hs_taxonomy_hierarchical_select_create_item($label, $parent, $params);
 }
 
