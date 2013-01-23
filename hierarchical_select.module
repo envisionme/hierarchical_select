@@ -363,7 +363,7 @@ function hierarchical_select_json() {
 
   // Render only the relevant part of the form (i.e. the hierarchical_select
   // form item that has triggered this AJAX callback).
-  $hsid = $_POST['hsid'];
+  $hsid = filter_xss($_POST['hsid']);
   $name = $storage['#names'][$hsid];
   $part_of_form = _hierarchical_select_get_form_item($form, $name);
   $output = drupal_render($part_of_form);
